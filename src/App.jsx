@@ -8,13 +8,15 @@ import Task from './components/Task'
 
 const App = () => {
     const [tasks, setTasks] = useState(
-        JSON.parse(localStorage.getItem('tasks')) || {
-            id: 1,
-            title: 'Task 1',
-            completed: false
-        }
+        JSON.parse(localStorage.getItem('tasks')) || [
+            {
+                id: 1,
+                title: 'Task 1',
+                completed: false
+            }
+        ]
     );
-
+    
     function handleChange(event, taskId) {
         const { name, value } = event.target;
         setTasks(prevTasks => {
